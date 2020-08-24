@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 {name: "Car's MOT", priority: true}
             ],
             newItem: "",
+            picked: ""
         },
         methods: {
             saveNewItem: function() {
@@ -18,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     priority: this.picked
                 });
                 this.newItem = "";
+            },
+            removeItem: function(index) {
+                this.items.splice(index, 1)
             }
         }
     });

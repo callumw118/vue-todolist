@@ -15,7 +15,7 @@
       <h1>To-Do List</h1>
 
       <form v-on:submit.prevent="saveNewItem">
-        <input id="new-item" type="text" v-model="newItem">
+        <input id="new-item" type="text" v-model="newItem" autocomplete="off">
 
         <label for="high">High</label>
         <input id="high" type="radio" name="priority" v-bind:value="true" v-model="picked">
@@ -27,8 +27,9 @@
       </form>
 
       <ul>
-        <li v-for="item in items" v-bind:class="{priority : item.priority}">
+        <li v-for="(item, index) in items" v-bind:class="{priority : item.priority}">
           <span>{{ item.name }}</span>
+          <button v-on:click="removeItem(index)">Remove</button>
         </li>
       </ul>
     </main>
