@@ -11,7 +11,19 @@
 
 <body>
   <div id="app">
-    <h1>{{ greeting }}</h1>
+    <h1>ToDo List</h1>
+    <form v-on:submit.prevent="saveNewItem">
+      <input id="new-item" type="text" v-model="newItem">
+      <input type="submit" value="Add">
+    </form>
+
+    <ul>
+      <li v-for="item in items">
+        <span>{{ item.name }}</span>
+      </li>
+    </ul>
+
   </div>
 </body>
+
 </html>
